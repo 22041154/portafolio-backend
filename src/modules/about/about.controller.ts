@@ -12,12 +12,11 @@ export class AboutController {
   }
 
   @Post()
-  @UseInterceptors(FileInterceptor('file')) // Atrapa el archivo enviado con el nombre 'file'
+  @UseInterceptors(FileInterceptor('file')) 
   updateAbout(
-    @Body() body: any,                      // Recibe el texto
-    @UploadedFile() file: Express.Multer.File // Recibe la imagen
+    @Body() body: any,                      
+    @UploadedFile() file: Express.Multer.File 
   ) {
-    // Pasamos el texto y el archivo opcional al servicio
     return this.aboutService.updateAbout(body.texto, file);
   }
 }

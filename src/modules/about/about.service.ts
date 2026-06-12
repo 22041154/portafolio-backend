@@ -28,7 +28,6 @@ export class AboutService {
       updateData.imagenUrl = cloudResponse.secure_url;
     }
 
-    // Actualizamos Firebase
     await db.collection('config').doc('about').set(updateData, { merge: true });
     return updateData;
   }

@@ -13,12 +13,11 @@ export class PhotosController {
   }
 
   @Post()
-  @UseInterceptors(FileInterceptor('file')) // Esto "atrapa" el archivo que viene del frontend
+  @UseInterceptors(FileInterceptor('file')) 
   create(
-    @Body() body: any, // Aquí viene el título, cámara, etc.
-    @UploadedFile() file: Express.Multer.File // Aquí viene la imagen física
+    @Body() body: any, 
+    @UploadedFile() file: Express.Multer.File 
   ) {
-    // Le enviamos ambas cosas a nuestro servicio
     return this.photosService.create(body, file);
   }
 

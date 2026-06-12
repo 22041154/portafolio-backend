@@ -22,9 +22,7 @@ export class CategoriesService {
     return categories;
   }
 
-  // Agregar una nueva categoría
   async create(createCategoryDto: CreateCategoryDto) {
-    // Guardamos el nombre en Firestore. Firebase generará un ID único automáticamente.
     const newDoc = await this.collection.add({
       name: createCategoryDto.name,
       createdAt: new Date().toISOString()
@@ -33,7 +31,6 @@ export class CategoriesService {
     return { id: newDoc.id, name: createCategoryDto.name };
   }
 
-  // Eliminar una categoría
   async remove(id: string) {
     const docRef = this.collection.doc(id);
     const doc = await docRef.get();
